@@ -27,10 +27,13 @@ jobs:
                     -destination 'generic/platform=iOS,variant=iphoneos' \
                     -archivePath build/StosVPN.xcarchive \
                     -skipPackagePluginValidation \
+                    -allowProvisioningUpdates \
                     CODE_SIGN_IDENTITY="" \
                     CODE_SIGNING_REQUIRED=NO \
                     CODE_SIGNING_ALLOWED=NO \
-                    ONLY_ACTIVE_ARCH=NO
+                    ONLY_ACTIVE_ARCH=NO \
+                    VALIDATE_WORKSPACE=NO \
+                    EXCLUDED_ARCHS="arm64e"
 
             - name: Create Payload directory
               run: mkdir -p Payload
